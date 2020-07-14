@@ -33,6 +33,7 @@
         a {
             text-decoration: none;
             color: black;
+            width: 50%;
         }
     </style>
 </head>
@@ -41,29 +42,49 @@
     <div class="box">
         <div class="inner-box">
             <div class="inner-box-top">
-                <a href="#" class="box-top">今日疯抢</a>
+                <a href="#" class="box-top" style="background : green">今日疯抢</a>
                 <a href="#" class="box-top">量贩装</a>
             </div>
             <div class="inner-box-bottom">
-                <img src="./imgs/1.png" alt="">
-                <img src="./imgs/2.png" alt="">
+                <div><img src="./imgs/1.png" alt=""></div>
+                <div> <img src="./imgs/2.png" alt=""></div>
             </div>
         </div>
     </div>
 
     <script>
-        var top = document.querySelectorAll(".box-top");
-        var bottom = document.querySelectorAll(".inner-box-bottom img");
-        for (let i = 0; i < top.length; i++) {
-            top[i].onclick = function() {
+        var tops = document.querySelectorAll(".box-top");
+        var bottom = document.querySelectorAll(".inner-box-bottom div");
+        for (let i = 0; i < tops.length; i++) {
+            tops[i].onclick = function() {
                 for (var j = 0; j < bottom.length; j++) {
+                    tops[j].style.background = "none";
+
                     bottom[j].style.display = "none";
-                    top[j].style.background = "none";
+
                 }
+                tops[i].style.background = "green"
+
                 bottom[i].style.display = "block"
-                this.style.background = "green"
             }
         }
+
+        var num = 0
+        setInterval(function run() {
+            if (num % 2 == 0) {
+                tops[1].style.background = "none";
+                bottoms[1].style.display = "none";
+                tops[0].style.background = "green"
+                bottoms[0].style.display = "block"
+            } else {
+                tops[0].style.background = "none";
+                bottoms[0].style.display = "none";
+                tops[1].style.background = "green"
+                bottoms[1].style.display = "block"
+            }
+            num += 1;
+
+        }, 2000)
     </script>
 </body>
 
