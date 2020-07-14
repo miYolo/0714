@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 484px;
+            height: 301px;
+            border: 1px solid red;
+        }
+        
+        .inner-box {
+            width: 462px;
+            height: 282px;
+            margin: 10px;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .09);
+            overflow: hidden;
+        }
+        
+        .inner-box-top {
+            width: 100%;
+            height: 57px;
+            display: flex;
+            justify-content: space-around;
+            line-height: 57px;
+            text-align: center;
+            background: #f1f1f1;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inner-box">
+            <div class="inner-box-top">
+                <a href="#" class="box-top">今日疯抢</a>
+                <a href="#" class="box-top">量贩装</a>
+            </div>
+            <div class="inner-box-bottom">
+                <img src="./imgs/1.png" alt="">
+                <img src="./imgs/2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var top = document.querySelectorAll(".box-top");
+        var bottom = document.querySelectorAll(".inner-box-bottom img");
+        for (let i = 0; i < top.length; i++) {
+            top[i].onclick = function() {
+                for (var j = 0; j < bottom.length; j++) {
+                    bottom[j].style.display = "none";
+                    top[j].style.background = "none";
+                }
+                bottom[i].style.display = "block"
+                this.style.background = "green"
+            }
+        }
+    </script>
+</body>
+
+</html>
